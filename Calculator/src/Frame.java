@@ -1,18 +1,13 @@
 import javax.swing.*;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Deque;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.Stack;
-import java.util.regex.Pattern;
 
 public class Frame extends JFrame {
     private JFrame frame;
@@ -24,6 +19,7 @@ public class Frame extends JFrame {
     private JPanel panelNum3;
     private JPanel panelNum4;
     private JPanel panelNum5;
+    private JPanel panelNum6;
     private Container container;
 
 
@@ -88,14 +84,14 @@ public class Frame extends JFrame {
         panelNum2 = new JPanel();
         panelNum3 = new JPanel();
         panelNum4 = new JPanel();
-        panelNum5 = new JPanel();
+        panelNum6 = new JPanel();
 
         panelNum1.setLayout(new GridLayout(1, 4, 0, 0));
         panelNum2.setLayout(new GridLayout(3, 3));
         panelNum3.setLayout(new GridLayout(2, 1));
         panelNum4.setLayout(new GridLayout(1, 2, 0, 0));
 
-        panelNum5.setLayout(new BorderLayout());
+        panelNum6.setLayout(new BorderLayout());
 
         panelNum1.add(createButton("<"));
         panelNum1.add(createButton("/"));
@@ -117,16 +113,17 @@ public class Frame extends JFrame {
 
         panelNum4.add(createButton("0"));
         panelNum4.add(createButton("."));
+        panelNum5.add(createButton(""));
 
         panelNum1.setBorder(BorderFactory.createEmptyBorder(0, -1, 0, 0));
         panelNum2.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         panelNum3.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         panelNum4.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
 
-        panelNum5.add(panelNum1, BorderLayout.NORTH);
-        panelNum5.add(panelNum2, BorderLayout.LINE_START);
-        panelNum5.add(panelNum3, BorderLayout.CENTER);
-        panelNum5.add(panelNum4, BorderLayout.SOUTH);
+        panelNum6.add(panelNum1, BorderLayout.NORTH);
+        panelNum6.add(panelNum2, BorderLayout.LINE_START);
+        panelNum6.add(panelNum3, BorderLayout.CENTER);
+        panelNum6.add(panelNum4, BorderLayout.SOUTH);
     }
 
     private void makeContainer() {
@@ -138,7 +135,7 @@ public class Frame extends JFrame {
         container.setLayout(new BorderLayout());
 
         container.add(panelTextLayer1, BorderLayout.BEFORE_FIRST_LINE);
-        container.add(panelNum5);
+        container.add(panelNum6);
     }
 
     private void addButtonclickNum(JButton button) {
