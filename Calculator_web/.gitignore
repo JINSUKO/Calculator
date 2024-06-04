@@ -45,4 +45,4 @@ gradlew
 gradlew.bat
 settings.gradle
 /src/test/
-/src/main/resources/
+/src/main/resources/*.properties
