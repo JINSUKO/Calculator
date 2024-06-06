@@ -1,15 +1,19 @@
 /*main beginning point*/
 $(document).ready( () => {
     load_calculator_page();
-    click_buttons();
-
 });
 
 function load_calculator_page() {
-    $("#calculator").load('calculator.html');
+    $("#calculator").load('calculator.html', () => {
+        click_buttons();
+
+    });
 }
 
 function click_buttons() {
-    let buttons_parent = document.querySelectorAll('.calculator > buttons');
-    print(buttons_parent)
+    let buttons_parent = document.querySelectorAll('.calculator > .buttons');
+
+    buttons_parent[0].addEventListener("click", (e) => {
+       console.log(e.target.innerText);
+    });
 }
