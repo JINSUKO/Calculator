@@ -23,7 +23,7 @@ body {
 }
 
 .display {
-  width: 300px; /*.arithmetic-buttons의 width 값과 맞추면 된다.*/
+  width: 200px; /*.arithmetic-buttons의 width 값과 맞추면 된다.*/
   margin: 0;
   padding: 0;
   border-radius: 5px;
@@ -35,15 +35,15 @@ body {
 .arithmetic-buttons {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
   gap: 5px;
-  width: 300px;
+  width: 200px;
   /*height: 500px;*/
   padding: 20px;
 }
 
 .button {
-  padding: 15px;
+  padding: 10px;
   margin: 0;
   border: none;
   border-radius: 5px;
