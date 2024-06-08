@@ -1,32 +1,44 @@
 body {
+}
+
+#calculator {
   font-family: 'Arial', sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100vw;
   height: 100vh;
   margin: 0;
-  background-color: #f7f7f7;
+  padding: 0;
 }
 
 .calculator {
-  background-color: #fff;
+  background-color: #fefefe;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.display-container{
+  padding: 20px 20px 0;
 }
 
 .display {
-  margin: 20px 20px 0;
+  width: 300px; /*.arithmetic-buttons의 width 값과 맞추면 된다.*/
+  margin: 0;
+  padding: 0;
   border-radius: 5px;
   text-align: right;
   font-size: 24px;
+  box-sizing: border-box; /* border-weight 만큼 픽셀이 width에 포함되는 걸 제거*/
 }
 
-.buttons {
+.arithmetic-buttons {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(4, 1fr);
   gap: 5px;
   width: 300px;
-  border-radius: 10px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  /*height: 500px;*/
   padding: 20px;
 }
 
