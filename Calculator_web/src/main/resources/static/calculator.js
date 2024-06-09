@@ -11,16 +11,35 @@ function load_calculator_page() {
 }
 
 function click_buttons() {
-    let buttons_parent = document.querySelectorAll('.calculator > .arithmetic-buttons');
-    let input_display = "";
+    const buttons_parent = document.querySelectorAll('.calculator > .arithmetic-buttons');
+    let input_display = document.querySelector(`.calculator > .display-container > .display`);
     let mathemeatical_expression = "";
+
+    console.log(input_display);
+
+    const nums = [`0`, `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`];
+    const operators = [`+`, `-`, `x`, `÷`];
+
     buttons_parent[0].addEventListener("click", (e) => {
-        console.log(e.target.innerText);
+
+        let value = e.target.innerText;
+
         if (e.target.innerText == "") {
-            console.log(e.target.getAttribute('alt'));
+            value = e.target.getAttribute('alt');
         }
 
+        console.log(value);
 
+        let tmp = "";
 
+        for (const num of nums) {
+            if (value == num) {
+                mathemeatical_expression += num;
+            }
+        }
+
+        console.log(mathemeatical_expression);
+
+        input_display.value = mathemeatical_expression;
     });
 }
