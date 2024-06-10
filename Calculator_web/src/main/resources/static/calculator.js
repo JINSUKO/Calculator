@@ -24,7 +24,7 @@ function click_buttons() {
 
         let value = e.target.innerText;
 
-        if (e.target.innerText == "") {
+        if (e.target.innerText === "") {
             value = e.target.getAttribute('alt');
         }
 
@@ -32,10 +32,18 @@ function click_buttons() {
 
         let tmp = "";
 
-        for (const num of nums) {
-            if (value == num) {
-                mathemeatical_expression += num;
+        if (isNaN(value)) {
+            // 여기서 문자별로 산술식에 붙힐지 말지 코드를 추가해야 한다.
+            if( value === 'delete') {
+                if (mathemeatical_expression.length == 0) {
+
+                } else {
+                    mathemeatical_expression = mathemeatical_expression.substring(0, mathemeatical_expression.length - 1);
+                }
+
             }
+        } else {
+            mathemeatical_expression += value;
         }
 
         console.log(mathemeatical_expression);
