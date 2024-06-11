@@ -41,6 +41,20 @@ function click_buttons() {
                     mathemeatical_expression = mathemeatical_expression.substring(0, mathemeatical_expression.length - 1);
                 }
 
+            } else if (['÷', 'x', '-', '+', '.'].includes(value)) {
+                char_last = mathemeatical_expression.substring(mathemeatical_expression.length - 1, mathemeatical_expression.length);
+
+                if (isNaN(char_last)) {
+                    if (value === '.' && char_last !== '.') {
+
+                        value = '0' + value;
+
+                        mathemeatical_expression += value;
+                    }
+                } else {
+                    mathemeatical_expression += value;
+                }
+
             }
         } else {
             mathemeatical_expression += value;
