@@ -28,7 +28,8 @@ body {
   padding: 0;
   border-radius: 5px;
   text-align: right;
-  font-size: 24px;
+  font-size: 17px;
+  line-height: 26px;
   box-sizing: border-box; /* border-weight 만큼 픽셀이 width에 포함되는 걸 제거*/
 }
 
