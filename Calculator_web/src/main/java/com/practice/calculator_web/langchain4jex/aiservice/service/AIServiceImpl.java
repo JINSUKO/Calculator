@@ -1,6 +1,7 @@
 package com.practice.calculator_web.langchain4jex.aiservice.service;
 
 import com.practice.calculator_web.langchain4jex.aiservice.dto.ChatRequest;
+import com.practice.calculator_web.langchain4jex.aiservice.model.BookModel;
 import dev.langchain4j.data.message.ChatMessage;
 import dev.langchain4j.data.message.SystemMessage;
 import dev.langchain4j.data.message.UserMessage;
@@ -50,4 +51,11 @@ public class AIServiceImpl implements AIService{
         return assistant.chat(request.getUserId(), request.getQuestion());
 
     }
+
+    @Override
+    public BookModel getBookModelFromText(ChatRequest request) {
+        return assistant.extractBookFromText(request.getUserId(), request.getQuestion());
+    }
+
+
 }

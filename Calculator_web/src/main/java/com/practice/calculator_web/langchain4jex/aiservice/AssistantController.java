@@ -3,6 +3,7 @@ package com.practice.calculator_web.langchain4jex.aiservice;
 
 import com.practice.calculator_web.langchain4jex.aiservice.dto.ChatRequest;
 import com.practice.calculator_web.langchain4jex.aiservice.dto.ChatResponse;
+import com.practice.calculator_web.langchain4jex.aiservice.model.BookModel;
 import com.practice.calculator_web.langchain4jex.aiservice.service.AIService;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,6 +26,11 @@ public class AssistantController {
     @PostMapping
     public ChatResponse getChatResponse(@RequestBody ChatRequest request) {
         return new ChatResponse(aiService.getResponse(request));
+    }
+
+    @PostMapping("/book")
+    public BookModel getBookModelFromText(@RequestBody ChatRequest request) {
+        return aiService.getBookModelFromText(request);
     }
 
 }
