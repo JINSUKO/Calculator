@@ -18,7 +18,8 @@ public interface Assistant {
     )
     String chat(@MemoryId int memoryId, @UserMessage String userMessage);
 
-    @SystemMessage("Extract information about a book from {{text}} and translate your answers into Korean language")
-    BookModel extractBookFromText(@MemoryId int memoryId, @UserMessage @V("text") String text);
+    @SystemMessage("Extract information about a book from {{text}} in json format and Should be in userId from the request")
+    @UserMessage("그리고 제목은 첫 번째 문장이다.")
+    BookModel extractBookFromText(@MemoryId int memoryId, @V("text") String text);
 
 }

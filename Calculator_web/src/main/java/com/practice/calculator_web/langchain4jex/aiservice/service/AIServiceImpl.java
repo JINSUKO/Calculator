@@ -32,6 +32,7 @@ public class AIServiceImpl implements AIService{
                 .builder()
                 .apiKey("demo")
                 .modelName(OpenAiChatModelName.GPT_3_5_TURBO)
+                .responseFormat("json_object")
                 .build();
 
 //public interface ChatLanguageModel - Interface ->

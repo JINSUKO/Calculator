@@ -26,6 +26,7 @@ public class ModelConfig {
         return OpenAiChatModel.builder()
                 .apiKey("demo")
                 .modelName(OpenAiChatModelName.GPT_3_5_TURBO)
+                .responseFormat("s")
                 .build();
     }
 }
