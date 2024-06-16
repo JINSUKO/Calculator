@@ -28,6 +28,11 @@ public class AssistantController {
         return new ChatResponse(aiService.getResponse(request));
     }
 
+    @PostMapping("/extended")
+    public ChatResponse getChatResponseExtended(@RequestBody ChatRequest request) {
+        return new ChatResponse(aiService.getResponseExtended(request));
+    }
+
     @PostMapping("/book")
     public BookModel getBookModelFromText(@RequestBody ChatRequest request) {
         return aiService.getBookModelFromText(request);

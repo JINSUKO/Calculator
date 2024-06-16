@@ -16,12 +16,14 @@ import java.util.List;
 public class AIServiceImpl implements AIService{
 
     private final Assistant assistant;
+    private final RAGAssistant ragAssistant;
 
-    public AIServiceImpl(Assistant assistant) {
+    public AIServiceImpl(Assistant assistant, RAGAssistant ragAssistant) {
         this.assistant = assistant;
+        this.ragAssistant = ragAssistant;
     }
 
-//    @Override
+    //    @Override
     public String getResponseSimple(ChatRequest request) {
 
         List<ChatMessage> messages = new ArrayList<>();
@@ -51,6 +53,11 @@ public class AIServiceImpl implements AIService{
 
         return assistant.chat(request.getUserId(), request.getQuestion());
 
+    }
+
+    @Override
+    public String getResponseExtended(ChatRequest request) {
+        return ragAssistant.chat(request.getUserId(), request.getQuestion());
     }
 
     @Override
