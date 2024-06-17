@@ -1,2 +1,2 @@
 # Calculator
-Practice Calculator logits via JAVA, Python
+Practice Calculator logits with JAVA, Python
