@@ -22,7 +22,8 @@ body {
   padding: 20px 20px 0;
 }
 
-.display {
+.display { /* input 태그말고 textarea 태그로 변경해서 해보기. 가로 초과시
+              두 줄 이상으로 표현 */
   width: 200px; /*.arithmetic-buttons의 width 값과 맞추면 된다.*/
   margin: 0;
   padding: 0;
@@ -31,6 +32,9 @@ body {
   font-size: 17px;
   line-height: 26px;
   box-sizing: border-box; /* border-weight 만큼 픽셀이 width에 포함되는 걸 제거*/
+
+  resize: none; /* textarea 속성 */
+  background-color: white;
 }
 
 .arithmetic-buttons {
