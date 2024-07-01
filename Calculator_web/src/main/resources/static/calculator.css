@@ -37,7 +37,7 @@ body {
   background-color: white;
 }
 
-.arithmetic-buttons {
+.buttons {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(5, 1fr);
@@ -58,16 +58,23 @@ body {
   text-align: center;
 }
 
+.button-press {
+  background-color: #d0d0d0;
+}
 .button:hover {
   background-color: #e0e0e0;
 }
 .button:active {
   background-color: #d0d0d0;
 }
-.button.operator {
+.operator {
   color: #fff;
   background-color: #fe9241;
 }
-.button.operator:hover {
+.operator:hover {
+  background-color: #ffab6e;
+}
+
+.button-press.operator {
   background-color: #ffab6e;
 }
