@@ -13,6 +13,8 @@ function load_calculator_page() {
 // 모든 함수 내부에서 textarea의 동일한 인스턴스를
 // 사용할 수 있도록 전역 변수로 설정함.
 let mathemeatical_expression;
+
+// 마우스 클릭 이벤트.
 function click_buttons_event() {
     const buttons_parent = document.querySelectorAll('.calculator > .buttons');
     let input_display = document.querySelector(`.calculator > .display-container > .display`);
@@ -24,6 +26,7 @@ function click_buttons_event() {
     });
 }
 
+// 키보드 키 이벤트.
 function press_number_pad_event() {
     let arithmatic_btns = document.querySelectorAll(`.calculator > .buttons > .arithmatic-btn`);
     let input_display = document.querySelector(`.calculator > .display-container > .display`);
@@ -105,6 +108,8 @@ function make_mathemeatical_expression(target, mathemeatical_expression, input_d
             } else {
                 mathemeatical_expression += value;
             }
+        } else if (value === '=') {
+            submit_expression(mathemeatical_expression, input_display);
         }
     } else {
         mathemeatical_expression += value;
@@ -115,4 +120,24 @@ function make_mathemeatical_expression(target, mathemeatical_expression, input_d
     input_display.scrollTop = input_display.scrollHeight;
 
     return mathemeatical_expression;
+}
+
+function submit_expression(mathemeatical_expression, input_display) {
+    const xhr = new XMLHttpRequest();
+    console.log('=');
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === xhr.DONE) {
+            if (xhr.status == 200 || xhr.status == 201) {
+                mathemeatical_expression = '=' + xhr.responseText;
+                input_display.value = mathemeatical_expression;
+
+                return mathemeatical_expression;
+            }
+        }
+    };
+
+    xhr.open('POST', 'localhost:8082/calc');
+    xhr.setRequestHeader('Content-Type', 'text/plain');
+
+    xhr.send(mathemeatical_expression);
 }
