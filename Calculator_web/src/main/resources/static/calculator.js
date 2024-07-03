@@ -109,7 +109,7 @@ function make_mathemeatical_expression(target, mathemeatical_expression, input_d
                 mathemeatical_expression += value;
             }
         } else if (value === '=') {
-            submit_expression(mathemeatical_expression, input_display);
+            return submit_expression(mathemeatical_expression, input_display);
         }
     } else {
         mathemeatical_expression += value;
@@ -128,7 +128,7 @@ function submit_expression(mathemeatical_expression, input_display) {
     xhr.onreadystatechange = function() {
         if (xhr.readyState === xhr.DONE) {
             if (xhr.status == 200 || xhr.status == 201) {
-                mathemeatical_expression = '=' + xhr.responseText;
+                mathemeatical_expression += '\n=' + xhr.responseText;
                 input_display.value = mathemeatical_expression;
 
                 return mathemeatical_expression;
@@ -136,7 +136,7 @@ function submit_expression(mathemeatical_expression, input_display) {
         }
     };
 
-    xhr.open('POST', 'localhost:8082/calc');
+    xhr.open('POST', 'http://localhost:8082/calc/standard');
     xhr.setRequestHeader('Content-Type', 'text/plain');
 
     xhr.send(mathemeatical_expression);
