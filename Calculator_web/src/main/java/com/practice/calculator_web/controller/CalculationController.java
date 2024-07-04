@@ -17,7 +17,7 @@ public class CalculationController {
 
     @PostMapping("/standard")
     public String getStandardOutput(@RequestBody String mathematicalExpression) {
-        splitExpression(mathematicalExpression);
+        evaluateExpress(splitExpression(mathematicalExpression));
         return "Standard Output";
     }
 
