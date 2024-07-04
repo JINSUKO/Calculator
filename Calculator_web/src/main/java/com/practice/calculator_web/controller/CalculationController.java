@@ -58,10 +58,54 @@ public class CalculationController {
         return oper_queue;
     }
 
-    private static void evaluateExpress(Queue<String> queue) {
-        Stack<String> stack = new Stack<>();
+    private static void evaluateExpression(Queue<String> queue) {
         System.out.println(queue);
+
+        Stack<String> stack = new Stack<>();
+
+        Queue<String> operatorMultiandDiv = getMultiandDiv(queue);
+
+        String tmp = null;
+
+        while (queue.size() || (stack.size() != 1)) {
+            tmp = queue.remove();
+
+            if (isOperator(tmp)) {
+                // x ÷ 연산자 있으면 계산
+                if (operatorMultiandDiv.size()) {
+
+                // x ÷ 연산자 없으면 - + 연산자 계산
+                } else {
+
+                }
+
+
+            } else {
+                 stack.push(tmp);
+            }
+
+        }
+
     }
+
+    private static boolean isOperator(String string) {
+        char ch = string.charAt(0);
+        System.out.println(ch);
+
+         switch (ch) {
+            case '-':
+                if (string.length() > 1) {
+                    return false;
+                }
+            case '+':
+            case '÷':
+            case 'x':
+                return true;
+            default:
+                return false;
+        }
+    }
+
 
 //[, 2130, 342, 423, 542, 4536]
 //- - x ÷ -
