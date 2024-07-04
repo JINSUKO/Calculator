@@ -17,7 +17,7 @@ public class CalculationController {
 
     @PostMapping("/standard")
     public String getStandardOutput(@RequestBody String mathematicalExpression) {
-        evaluateExpress(splitExpression(mathematicalExpression));
+        evaluateExpression(splitExpression(mathematicalExpression));
         return "Standard Output";
     }
 
@@ -27,13 +27,11 @@ public class CalculationController {
 
         String[] operandList = expression.split("[÷x\\-+]");
 
-        expression.charAt(operandList[0].length());
-
         String tmp = "";
         for (int i = 0; i < operandList.length; i++) {
 
             if (i == 0) {
-                if (operandList[i].equals("")) {
+                if (operandList[i].isEmpty()) {
                     i++;
                     oper_queue.add("-" + operandList[i]);
                     tmp += "-" + operandList[i];
@@ -65,14 +63,14 @@ public class CalculationController {
 
         Queue<String> operatorMultiandDiv = getMultiandDiv(queue);
 
-        String tmp = null;
+        String tmp;
 
-        while (queue.size() || (stack.size() != 1)) {
-            tmp = queue.remove();
+        while (queue.size() != 0 || stack.size() != 1) {
+            tmp = queue.poll();
 
             if (isOperator(tmp)) {
                 // x ÷ 연산자 있으면 계산
-                if (operatorMultiandDiv.size()) {
+                if (operatorMultiandDiv.size() != 0) {
 
                 // x ÷ 연산자 없으면 - + 연산자 계산
                 } else {
@@ -123,19 +121,21 @@ public class CalculationController {
 
     private static String compute(String operand1, String operand2, String opertor) {
 
-        double num1 = Double.valueOf(operand1);
-        double num2 = Double.valueOf(operand2);
+        double num1 = Double.parseDouble(operand1);
+        double num2 = Double.parseDouble(operand2);
 
          switch (opertor) {
-            case '-':
+            case "-":
                 return Double.toString(num1 - num2);
-            case '+':
+            case "+":
                 return Double.toString(num1 + num2);
-            case '÷':
+            case "÷":
                 return Double.toString(num1 / num2);
-            case 'x':
+            case "x":
                 return Double.toString(num1 * num2);
         }
+
+        return null;
     }
 
 //[, 2130, 342, 423, 542, 4536]
