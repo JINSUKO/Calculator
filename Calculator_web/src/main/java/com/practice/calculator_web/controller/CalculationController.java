@@ -106,6 +106,37 @@ public class CalculationController {
         }
     }
 
+    private static Queue<String> getMultiandDiv(Queue<String> queue) {
+
+        Queue<String> queueOpers = new LinkedList<>();
+
+        queue.forEach(num -> {
+            if (num.equals('÷')) {
+                queueOpers.add(num);
+            } else if (num.equals('x')) {
+                queueOpers.add(num);
+            }
+        });
+
+        return queueOpers;
+    }
+
+    private static String compute(String operand1, String operand2, String opertor) {
+
+        double num1 = Double.valueOf(operand1);
+        double num2 = Double.valueOf(operand2);
+
+         switch (opertor) {
+            case '-':
+                return Double.toString(num1 - num2);
+            case '+':
+                return Double.toString(num1 + num2);
+            case '÷':
+                return Double.toString(num1 / num2);
+            case 'x':
+                return Double.toString(num1 * num2);
+        }
+    }
 
 //[, 2130, 342, 423, 542, 4536]
 //- - x ÷ -
